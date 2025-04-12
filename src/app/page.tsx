@@ -74,7 +74,17 @@ export default function Home() {
                   </CardHeader>
                   <CardContent className="grid gap-4">
                     <div>
-                      <p className="text-sm font-medium">Title:</p>
+                      <div className="flex items-center justify-between">
+                        <p className="text-sm font-medium">Description:</p>
+                        <Popover>
+                          <PopoverTrigger asChild>
+                            <Button variant="secondary" size="sm">View Description</Button>
+                          </PopoverTrigger>
+                          <PopoverContent className="w-80">
+                            {result.description}
+                          </PopoverContent>
+                        </Popover>
+                      </div>
                       <div className="flex items-center">
                         <Input
                           readOnly
@@ -92,41 +102,27 @@ export default function Home() {
                       </div>
                     </div>
                     <div>
-                      <p className="text-sm font-medium">Description:</p>
-                      <div className="flex items-center">
+                      <div className="flex items-center justify-between">
+                        <p className="text-sm font-medium">Hashtags:</p>
                         <Popover>
                           <PopoverTrigger asChild>
-                            <Button variant="outline">View Description</Button>
-                          </PopoverTrigger>
-                          <PopoverContent className="w-80">
-                            {result.description}
-                          </PopoverContent>
-                        </Popover>
-                        <Button
-                          variant="secondary"
-                          size="icon"
-                          onClick={() => handleCopyToClipboard(result.description, "Description")}
-                        >
-                          <Copy className="h-4 w-4"/>
-                          <span className="sr-only">Copy to clipboard</span>
-                        </Button>
-                      </div>
-                    </div>
-                    <div>
-                      <p className="text-sm font-medium">Hashtags:</p>
-                      <div className="flex items-center">
-                        <Popover>
-                          <PopoverTrigger asChild>
-                            <Button variant="outline">View Hashtags</Button>
+                            <Button variant="secondary" size="sm">View Hashtags</Button>
                           </PopoverTrigger>
                           <PopoverContent className="w-80">
                             {result.hashtags}
                           </PopoverContent>
                         </Popover>
+                      </div>
+                      <div className="flex items-center">
+                        <Input
+                          readOnly
+                          className="bg-secondary"
+                          value={result.title}
+                        />
                         <Button
                           variant="secondary"
                           size="icon"
-                          onClick={() => handleCopyToClipboard(result.hashtags, "Hashtags")}
+                          onClick={() => handleCopyToClipboard(result.title, "Title")}
                         >
                           <Copy className="h-4 w-4"/>
                           <span className="sr-only">Copy to clipboard</span>
@@ -154,3 +150,4 @@ export default function Home() {
     </div>
   );
 }
+
