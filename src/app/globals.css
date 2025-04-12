@@ -115,8 +115,12 @@ body {
 .card {
     box-shadow: 0 0 5px 2px hsla(180, 100%, 25%, 0.4);
     background: linear-gradient(90deg, #222222, #333333, #222222);
-    backgroundSize: 400% 400%;
+    background-size: 400% 400%;
     animation: shimmer 15s linear infinite;
     border: 1px solid hsla(180, 100%, 25%, 0.5);
 }
     
+.button {
+    background-size: 400% 400%;
+    animation: shimmer 15s linear infinite;
+}
