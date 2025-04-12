@@ -26,15 +26,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        {children}
         <nav className="flex items-center justify-center space-x-6 p-4">
-          <Link href="/">Home</Link>
           <Link href="/about">About</Link>
           <Link href="/contact">Contact</Link>
           <Link href="/privacy-policy">Privacy Policy</Link>
           <Link href="/terms-of-service">Terms of Service</Link>
         </nav>
-        {children}
       </body>
     </html>
   );
 }
+

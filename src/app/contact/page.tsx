@@ -9,8 +9,25 @@ export default function ContactPage() {
       <p className="text-lg mb-4">
         Have questions or feedback? We'd love to hear from you!
       </p>
-      <p className="text-md">
+      <p className="text-md mb-4">
         Email: <a href="mailto:support@tubeimprove.com">support@tubeimprove.com</a>
+      </p>
+      <p className="text-md mb-4">
+        We typically respond to emails within 24-48 hours.
+      </p>
+      <p className="text-md mb-4">
+        You can also reach us on social media:
+      </p>
+      <ul className="list-none pl-0 mb-4">
+        <li>
+          <a href="https://twitter.com/tubeimprove" target="_blank" rel="noopener noreferrer">Twitter</a>
+        </li>
+        <li>
+          <a href="https://facebook.com/tubeimprove" target="_blank" rel="noopener noreferrer">Facebook</a>
+        </li>
+      </ul>
+      <p className="text-md mb-4">
+        We appreciate your interest in Tube Improve and look forward to hearing from you!
       </p>
       <Link href="/" className="mt-4 text-blue-500 hover:underline">
         Back to Home
