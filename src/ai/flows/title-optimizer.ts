@@ -46,7 +46,12 @@ const optimizeTitlePrompt = ai.definePrompt({
       })).describe('An array of AI-powered suggestions for improved titles, descriptions, and hashtags, along with SEO explanations.'),
     }),
   },
-  prompt: `You are an expert in YouTube SEO and title optimization. Given the original title, suggest three improved titles that will enhance SEO and engagement, along with SEO-driven descriptions, hashtags, and a detailed explanation of the SEO benefits for each title.
+  prompt: `You are an expert in YouTube SEO and title optimization. Given the original title, suggest three improved titles that will enhance SEO and engagement.  Each suggestion must include SEO-driven descriptions, a diverse set of hashtags (at least 10 per suggestion), and a detailed explanation of the SEO benefits for each title, description and hashtag selection.
+
+To improve SEO, follow these guidelines:
+- Titles should be concise, engaging, and include relevant keywords to improve search visibility.
+- Descriptions should provide a clear summary of the video content, incorporating keywords naturally to attract viewers and search engines.
+- Hashtags should be a mix of broad, trending, and specific terms related to the video's niche to maximize reach.
 
 Original Title: {{{originalTitle}}}
 
