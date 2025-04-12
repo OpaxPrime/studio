@@ -73,9 +73,8 @@ export default function Home() {
                     <CardTitle>Suggestion {index + 1}</CardTitle>
                   </CardHeader>
                   <CardContent className="grid gap-4">
-                    <div>
-                      <div className="flex items-center justify-between">
-                        <p className="text-sm font-medium">Description:</p>
+                    <div className="flex flex-col">
+                      <div className="flex items-center space-x-2 mb-2">
                         <Popover>
                           <PopoverTrigger asChild>
                             <Button variant="secondary" size="sm">View Description</Button>
@@ -84,26 +83,6 @@ export default function Home() {
                             {result.description}
                           </PopoverContent>
                         </Popover>
-                      </div>
-                      <div className="flex items-center">
-                        <Input
-                          readOnly
-                          className="bg-secondary"
-                          value={result.title}
-                        />
-                        <Button
-                          variant="secondary"
-                          size="icon"
-                          onClick={() => handleCopyToClipboard(result.title, "Title")}
-                        >
-                          <Copy className="h-4 w-4"/>
-                          <span className="sr-only">Copy to clipboard</span>
-                        </Button>
-                      </div>
-                    </div>
-                    <div>
-                      <div className="flex items-center justify-between">
-                        <p className="text-sm font-medium">Hashtags:</p>
                         <Popover>
                           <PopoverTrigger asChild>
                             <Button variant="secondary" size="sm">View Hashtags</Button>
