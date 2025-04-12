@@ -8,6 +8,7 @@ import {Textarea} from '@/components/ui/textarea';
 import {Card, CardContent, CardDescription, CardHeader, CardTitle} from '@/components/ui/card';
 import {useToast} from "@/hooks/use-toast"
 import {Copy, Loader2} from 'lucide-react';
+import {Popover, PopoverContent, PopoverTrigger} from "@/components/ui/popover";
 
 export default function Home() {
   const [originalTitle, setOriginalTitle] = useState('');
@@ -93,11 +94,14 @@ export default function Home() {
                     <div>
                       <p className="text-sm font-medium">Description:</p>
                       <div className="flex items-center">
-                        <Input
-                          readOnly
-                          className="bg-secondary"
-                          value={result.description}
-                        />
+                        <Popover>
+                          <PopoverTrigger asChild>
+                            <Button variant="outline">View Description</Button>
+                          </PopoverTrigger>
+                          <PopoverContent className="w-80">
+                            {result.description}
+                          </PopoverContent>
+                        </Popover>
                         <Button
                           variant="secondary"
                           size="icon"
@@ -111,11 +115,14 @@ export default function Home() {
                     <div>
                       <p className="text-sm font-medium">Hashtags:</p>
                       <div className="flex items-center">
-                        <Input
-                          readOnly
-                          className="bg-secondary"
-                          value={result.hashtags}
-                        />
+                        <Popover>
+                          <PopoverTrigger asChild>
+                            <Button variant="outline">View Hashtags</Button>
+                          </PopoverTrigger>
+                          <PopoverContent className="w-80">
+                            {result.hashtags}
+                          </PopoverContent>
+                        </Popover>
                         <Button
                           variant="secondary"
                           size="icon"
@@ -136,3 +143,4 @@ export default function Home() {
     </div>
   );
 }
+
