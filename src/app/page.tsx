@@ -13,7 +13,7 @@ import {Popover, PopoverContent, PopoverTrigger} from "@/components/ui/popover";
 export default function Home() {
   const [originalTitle, setOriginalTitle] = useState('');
   const [optimizedResults, setOptimizedResults] = useState<
-    { title: string; description: string; hashtags: string }[] | null
+    { title: string; description: string; hashtags: string, seoExplanation: string }[] | null
   >(null);
   const [loading, setLoading] = useState(false);
   const { toast } = useToast();
@@ -133,6 +133,17 @@ export default function Home() {
                         </Button>
                       </div>
                     </div>
+                    <div>
+                      <p className="text-sm font-medium">SEO Explanation:</p>
+                      <Popover>
+                        <PopoverTrigger asChild>
+                          <Button variant="outline">View Explanation</Button>
+                        </PopoverTrigger>
+                        <PopoverContent className="w-80">
+                          {result.seoExplanation}
+                        </PopoverContent>
+                      </Popover>
+                    </div>
                   </CardContent>
                 </Card>
               ))}
@@ -143,4 +154,3 @@ export default function Home() {
     </div>
   );
 }
-
