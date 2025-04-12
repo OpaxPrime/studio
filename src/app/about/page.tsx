@@ -1,5 +1,7 @@
 'use client';
 
+import Link from 'next/link';
+
 export default function AboutPage() {
   return (
     <div className="flex flex-col items-center justify-start min-h-screen p-8">
@@ -12,6 +14,10 @@ export default function AboutPage() {
         Our mission is to empower content creators with the insights they need to
         reach a wider audience and grow their channels.
       </p>
+      <Link href="/" className="mt-4 text-blue-500 hover:underline">
+        Back to Home
+      </Link>
     </div>
   );
 }
+

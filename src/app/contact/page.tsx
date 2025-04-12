@@ -1,5 +1,7 @@
 'use client';
 
+import Link from 'next/link';
+
 export default function ContactPage() {
   return (
     <div className="flex flex-col items-center justify-start min-h-screen p-8">
@@ -10,6 +12,10 @@ export default function ContactPage() {
       <p className="text-md">
         Email: <a href="mailto:support@tubeimprove.com">support@tubeimprove.com</a>
       </p>
+      <Link href="/" className="mt-4 text-blue-500 hover:underline">
+        Back to Home
+      </Link>
     </div>
   );
 }
+

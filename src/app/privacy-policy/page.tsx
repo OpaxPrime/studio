@@ -1,5 +1,7 @@
 'use client';
 
+import Link from 'next/link';
+
 export default function PrivacyPolicyPage() {
   return (
     <div className="flex flex-col items-center justify-start min-h-screen p-8">
@@ -11,6 +13,10 @@ export default function PrivacyPolicyPage() {
       <p className="text-md">
         We do not collect any personal information.
       </p>
+      <Link href="/" className="mt-4 text-blue-500 hover:underline">
+        Back to Home
+      </Link>
     </div>
   );
 }
+

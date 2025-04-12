@@ -1,5 +1,7 @@
 'use client';
 
+import Link from 'next/link';
+
 export default function TermsOfServicePage() {
   return (
     <div className="flex flex-col items-center justify-start min-h-screen p-8">
@@ -11,6 +13,10 @@ export default function TermsOfServicePage() {
         Use of this tool is at your own risk. We are not responsible for any
         outcomes resulting from the use of suggested titles or descriptions.
       </p>
+      <Link href="/" className="mt-4 text-blue-500 hover:underline">
+        Back to Home
+      </Link>
     </div>
   );
 }
+
