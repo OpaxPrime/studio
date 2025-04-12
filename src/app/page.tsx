@@ -79,32 +79,36 @@ export default function Home() {
                           <PopoverTrigger asChild>
                             <Button variant="secondary" size="sm">View Description</Button>
                           </PopoverTrigger>
-                          <PopoverContent className="w-80 flex flex-col space-y-2">
-                            {result.description}
-                            <Button
-                              variant="secondary"
-                              size="icon"
-                              onClick={() => handleCopyToClipboard(result.description, "Description")}
-                            >
-                              <Copy className="h-4 w-4"/>
-                              <span className="sr-only">Copy to clipboard</span>
-                            </Button>
+                          <PopoverContent className="w-80">
+                            <div className="flex justify-between items-start">
+                              <div>{result.description}</div>
+                              <Button
+                                variant="secondary"
+                                size="icon"
+                                onClick={() => handleCopyToClipboard(result.description, "Description")}
+                              >
+                                <Copy className="h-4 w-4"/>
+                                <span className="sr-only">Copy to clipboard</span>
+                              </Button>
+                            </div>
                           </PopoverContent>
                         </Popover>
                         <Popover>
                           <PopoverTrigger asChild>
                             <Button variant="secondary" size="sm">View Hashtags</Button>
                           </PopoverTrigger>
-                          <PopoverContent className="w-80 flex flex-col space-y-2">
-                            {result.hashtags}
-                            <Button
-                              variant="secondary"
-                              size="icon"
-                              onClick={() => handleCopyToClipboard(result.hashtags, "Hashtags")}
-                            >
-                              <Copy className="h-4 w-4"/>
-                              <span className="sr-only">Copy to clipboard</span>
-                            </Button>
+                          <PopoverContent className="w-80">
+                            <div className="flex justify-between items-start">
+                              <div>{result.hashtags}</div>
+                              <Button
+                                variant="secondary"
+                                size="icon"
+                                onClick={() => handleCopyToClipboard(result.hashtags, "Hashtags")}
+                              >
+                                <Copy className="h-4 w-4"/>
+                                <span className="sr-only">Copy to clipboard</span>
+                              </Button>
+                            </div>
                           </PopoverContent>
                         </Popover>
                       </div>
@@ -138,3 +142,4 @@ export default function Home() {
     </div>
   );
 }
+
