@@ -131,14 +131,7 @@ export default function Home() {
                     </div>
                     <div>
                       <p className="text-sm font-medium">SEO Explanation:</p>
-                      <Popover>
-                        <PopoverTrigger asChild>
-                          <Button variant="outline">View Explanation</Button>
-                        </PopoverTrigger>
-                        <PopoverContent className="w-80">
-                          {result.seoExplanation}
-                        </PopoverContent>
-                      </Popover>
+                      {result.seoExplanation}
                     </div>
                   </CardContent>
                 </Card>
@@ -150,4 +143,3 @@ export default function Home() {
     </div>
   );
 }
-
