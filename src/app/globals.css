@@ -103,4 +103,6 @@ body {
   }
 }
 
-
+.card {
+  box-shadow: 0 0 5px 2px hsla(180, 100%, 25%, 0.4);
+}
