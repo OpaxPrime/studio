@@ -1,4 +1,3 @@
-
 'use client';
 
 import {useState} from 'react';
@@ -12,7 +11,9 @@ import {Copy, Loader2} from 'lucide-react';
 
 export default function Home() {
   const [originalTitle, setOriginalTitle] = useState('');
-  const [optimizedTitle, setOptimizedTitle] = useState<string | null>(null);
+  const [optimizedResults, setOptimizedResults] = useState<
+    { title: string; description: string; hashtags: string }[] | null
+  >(null);
   const [loading, setLoading] = useState(false);
   const { toast } = useToast();
 
@@ -20,27 +21,25 @@ export default function Home() {
     setLoading(true);
     try {
       const result = await optimizeTitle({originalTitle});
-      setOptimizedTitle(result.optimizedTitle);
+      setOptimizedResults(result.optimizedResults);
     } catch (error) {
       console.error('Error optimizing title:', error);
       toast({
         variant: "destructive",
         title: "Error",
         description: "Failed to optimize title. Please try again.",
-      })
+      });
     } finally {
       setLoading(false);
     }
   };
 
-  const handleCopyToClipboard = () => {
-    if (optimizedTitle) {
-      navigator.clipboard.writeText(optimizedTitle);
-      toast({
-        title: "Copied!",
-        description: "Optimized title copied to clipboard.",
-      })
-    }
+  const handleCopyToClipboard = (text: string, field: string) => {
+    navigator.clipboard.writeText(text);
+    toast({
+      title: "Copied!",
+      description: `${field} copied to clipboard.`,
+    });
   };
 
   return (
@@ -50,7 +49,7 @@ export default function Home() {
         <CardHeader>
           <CardTitle>Optimize Your YouTube Title</CardTitle>
           <CardDescription>
-            Enter your original title and let AI suggest an improved version for better SEO.
+            Enter your original title and let AI suggest improved versions for better SEO.
           </CardDescription>
         </CardHeader>
         <CardContent className="grid gap-4">
@@ -65,24 +64,71 @@ export default function Home() {
             {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin"/>}
             Optimize Title
           </Button>
-          {optimizedTitle && (
-            <div className="mt-4">
-              <p className="text-sm font-medium">Optimized Title:</p>
-              <div className="flex items-center">
-                <Input
-                  readOnly
-                  className="bg-secondary"
-                  value={optimizedTitle}
-                />
-                <Button
-                  variant="secondary"
-                  size="icon"
-                  onClick={handleCopyToClipboard}
-                >
-                  <Copy className="h-4 w-4"/>
-                  <span className="sr-only">Copy to clipboard</span>
-                </Button>
-              </div>
+          {optimizedResults && (
+            <div className="mt-4 grid gap-4">
+              {optimizedResults.map((result, index) => (
+                <Card key={index}>
+                  <CardHeader>
+                    <CardTitle>Suggestion {index + 1}</CardTitle>
+                  </CardHeader>
+                  <CardContent className="grid gap-4">
+                    <div>
+                      <p className="text-sm font-medium">Title:</p>
+                      <div className="flex items-center">
+                        <Input
+                          readOnly
+                          className="bg-secondary"
+                          value={result.title}
+                        />
+                        <Button
+                          variant="secondary"
+                          size="icon"
+                          onClick={() => handleCopyToClipboard(result.title, "Title")}
+                        >
+                          <Copy className="h-4 w-4"/>
+                          <span className="sr-only">Copy to clipboard</span>
+                        </Button>
+                      </div>
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium">Description:</p>
+                      <div className="flex items-center">
+                        <Input
+                          readOnly
+                          className="bg-secondary"
+                          value={result.description}
+                        />
+                        <Button
+                          variant="secondary"
+                          size="icon"
+                          onClick={() => handleCopyToClipboard(result.description, "Description")}
+                        >
+                          <Copy className="h-4 w-4"/>
+                          <span className="sr-only">Copy to clipboard</span>
+                        </Button>
+                      </div>
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium">Hashtags:</p>
+                      <div className="flex items-center">
+                        <Input
+                          readOnly
+                          className="bg-secondary"
+                          value={result.hashtags}
+                        />
+                        <Button
+                          variant="secondary"
+                          size="icon"
+                          onClick={() => handleCopyToClipboard(result.hashtags, "Hashtags")}
+                        >
+                          <Copy className="h-4 w-4"/>
+                          <span className="sr-only">Copy to clipboard</span>
+                        </Button>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
           )}
         </CardContent>
