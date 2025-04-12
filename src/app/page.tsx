@@ -45,7 +45,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col items-center justify-start min-h-screen p-8">
-      <h1 className="text-3xl font-semibold mb-6">TitleForge</h1>
+      <h1 className="text-3xl font-semibold mb-6">Tube Improve</h1>
       <Card className="w-full max-w-2xl">
         <CardHeader>
           <CardTitle>Optimize Your YouTube Title</CardTitle>
@@ -142,4 +142,3 @@ export default function Home() {
     </div>
   );
 }
-

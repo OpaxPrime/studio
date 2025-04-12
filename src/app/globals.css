@@ -5,6 +5,7 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(to bottom, #008080, #000000);
 }
 
 @layer base {
@@ -87,4 +88,3 @@ body {
     @apply bg-background text-foreground;
   }
 }
-
