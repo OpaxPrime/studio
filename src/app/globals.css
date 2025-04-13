@@ -42,8 +42,41 @@ body {
     }
 }
 
+@keyframes clockwiseGlow {
+    0% {
+        box-shadow:
+            0 0 5px 2px hsla(180, 100%, 25%, 0.4),
+            0 0 10px 5px hsla(180, 100%, 50%, 0.6);
+        transform: rotate(0deg);
+    }
+    25% {
+        box-shadow:
+            5px 0 5px 2px hsla(180, 100%, 25%, 0.4),
+            10px 0 10px 5px hsla(180, 100%, 50%, 0.6);
+        transform: rotate(90deg);
+    }
+    50% {
+        box-shadow:
+            0 5px 5px 2px hsla(180, 100%, 25%, 0.4),
+            0 10px 10px 5px hsla(180, 100%, 50%, 0.6);
+        transform: rotate(180deg);
+    }
+    75% {
+        box-shadow:
+            -5px 0 5px 2px hsla(180, 100%, 25%, 0.4),
+            -10px 0 10px 5px hsla(180, 100%, 50%, 0.6);
+        transform: rotate(270deg);
+    }
+    100% {
+        box-shadow:
+            0 0 5px 2px hsla(180, 100%, 25%, 0.4),
+            0 0 10px 5px hsla(180, 100%, 50%, 0.6);
+        transform: rotate(360deg);
+    }
+}
+
 .glowing-border {
-    animation: glowingBorder 5s linear infinite;
+    animation: clockwiseGlow 5s linear infinite;
 }
 
 @layer base {
@@ -139,4 +172,3 @@ body {
     background-size: 400% 400%;
     animation: shimmer 15s linear infinite;
 }
-
