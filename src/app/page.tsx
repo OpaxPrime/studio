@@ -46,7 +46,7 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center justify-start min-h-screen p-8">
       <h1 className="text-3xl font-semibold mb-6">Tube Improve</h1>
-      <Card className="w-full max-w-2xl">
+      <Card className="w-full max-w-2xl rounded-lg">
         <CardHeader>
           <CardTitle>Optimize Your YouTube Title</CardTitle>
           <CardDescription>
@@ -69,7 +69,7 @@ export default function Home() {
             <div className="mt-4 grid gap-4">
               {optimizedResults.map((result, index) => (
                 <div key={index} className="glowing-border">
-                  <Card>
+                  <Card className="rounded-lg">
                     <CardHeader>
                       <CardTitle>Suggestion {index + 1}</CardTitle>
                     </CardHeader>
@@ -116,7 +116,7 @@ export default function Home() {
                         <div className="flex items-center">
                           <Input
                             readOnly
-                            className="bg-secondary"
+                            className="bg-secondary rounded-lg"
                             value={result.title}
                           />
                           <Button
@@ -144,4 +144,5 @@ export default function Home() {
     </div>
   );
 }
+
 
