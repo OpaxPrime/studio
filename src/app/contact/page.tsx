@@ -20,7 +20,10 @@ export default function ContactPage() {
       </p>
       <ul className="list-none pl-0 mb-4">
         <li>
-          <a href="https://instagram.com/tubeimproveai" target="_blank" rel="noopener noreferrer">Instagram: @tubeimproveai</a>
+          <a href="https://instagram.com/tubeimproveai" target="_blank" rel="noopener noreferrer">Instagram: @tubeimproveai</a> (tubeimproveai)
+        </li>
+        <li>
+          YouTube: @TubeImprove
         </li>
       </ul>
       <p className="text-md mb-4">
@@ -32,5 +35,3 @@ export default function ContactPage() {
     </div>
   );
 }
-
-
