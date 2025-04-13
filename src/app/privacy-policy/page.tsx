@@ -48,7 +48,7 @@ export default function PrivacyPolicyPage() {
       </p>
 
       <p className="text-md mb-4">
-        Email: <a href="mailto:support@tubeimprove.com">support@tubeimprove.com</a>
+        Email: <a href="mailto:tubeimprovesupport@gmail.com">tubeimprovesupport@gmail.com</a>
       </p>
 
       <Link href="/" className="mt-4 text-blue-500 hover:underline">
@@ -57,3 +57,4 @@ export default function PrivacyPolicyPage() {
     </div>
   );
 }
+
