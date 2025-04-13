@@ -68,7 +68,7 @@ export default function Home() {
           {optimizedResults && (
             <div className="mt-4 grid gap-4">
               {optimizedResults.map((result, index) => (
-                <div key={index} className={index === 2 ? "glowing-border" : ""}>
+                <div key={index} className="glowing-border">
                   <Card>
                     <CardHeader>
                       <CardTitle>Suggestion {index + 1}</CardTitle>
@@ -144,3 +144,4 @@ export default function Home() {
     </div>
   );
 }
+
