@@ -10,7 +10,7 @@ export default function ContactPage() {
         Have questions or feedback? We'd love to hear from you!
       </p>
       <p className="text-md mb-4">
-        Email: <a href="mailto:tubeimprovesupport@gmail.com">tubeimprovesupport@gmail.com</a>
+        Email: <a href="mailto:tubeimproveai@gmail.com">tubeimproveai@gmail.com</a>
       </p>
       <p className="text-md mb-4">
         We typically respond to emails within 24-48 hours.
@@ -32,4 +32,5 @@ export default function ContactPage() {
     </div>
   );
 }
+
 
