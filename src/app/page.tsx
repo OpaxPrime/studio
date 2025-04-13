@@ -68,72 +68,74 @@ export default function Home() {
           {optimizedResults && (
             <div className="mt-4 grid gap-4">
               {optimizedResults.map((result, index) => (
-                <Card key={index} className={index === 2 ? "glowing-border" : ""}>
-                  <CardHeader>
-                    <CardTitle>Suggestion {index + 1}</CardTitle>
-                  </CardHeader>
-                  <CardContent className="grid gap-4">
-                    <div className="flex flex-col">
-                      <div className="flex items-center space-x-2 mb-2">
-                        <Popover>
-                          <PopoverTrigger asChild>
-                            <Button variant="secondary" size="sm">View Description</Button>
-                          </PopoverTrigger>
-                          <PopoverContent className="w-80">
-                            <div className="flex justify-between items-start">
-                              <div>{result.description}</div>
-                              <Button
-                                variant="secondary"
-                                size="icon"
-                                onClick={() => handleCopyToClipboard(result.description, "Description")}
-                              >
-                                <Copy className="h-4 w-4"/>
-                                <span className="sr-only">Copy to clipboard</span>
-                              </Button>
-                            </div>
-                          </PopoverContent>
-                        </Popover>
-                        <Popover>
-                          <PopoverTrigger asChild>
-                            <Button variant="secondary" size="sm">View Hashtags</Button>
-                          </PopoverTrigger>
-                          <PopoverContent className="w-80">
-                            <div className="flex justify-between items-start">
-                              <div>{result.hashtags}</div>
-                              <Button
-                                variant="secondary"
-                                size="icon"
-                                onClick={() => handleCopyToClipboard(result.hashtags, "Hashtags")}
-                              >
-                                <Copy className="h-4 w-4"/>
-                                <span className="sr-only">Copy to clipboard</span>
-                              </Button>
-                            </div>
-                          </PopoverContent>
-                        </Popover>
+                <div key={index} className={index === 2 ? "glowing-border" : ""}>
+                  <Card>
+                    <CardHeader>
+                      <CardTitle>Suggestion {index + 1}</CardTitle>
+                    </CardHeader>
+                    <CardContent className="grid gap-4">
+                      <div className="flex flex-col">
+                        <div className="flex items-center space-x-2 mb-2">
+                          <Popover>
+                            <PopoverTrigger asChild>
+                              <Button variant="secondary" size="sm">View Description</Button>
+                            </PopoverTrigger>
+                            <PopoverContent className="w-80">
+                              <div className="flex justify-between items-start">
+                                <div>{result.description}</div>
+                                <Button
+                                  variant="secondary"
+                                  size="icon"
+                                  onClick={() => handleCopyToClipboard(result.description, "Description")}
+                                >
+                                  <Copy className="h-4 w-4"/>
+                                  <span className="sr-only">Copy to clipboard</span>
+                                </Button>
+                              </div>
+                            </PopoverContent>
+                          </Popover>
+                          <Popover>
+                            <PopoverTrigger asChild>
+                              <Button variant="secondary" size="sm">View Hashtags</Button>
+                            </PopoverTrigger>
+                            <PopoverContent className="w-80">
+                              <div className="flex justify-between items-start">
+                                <div>{result.hashtags}</div>
+                                <Button
+                                  variant="secondary"
+                                  size="icon"
+                                  onClick={() => handleCopyToClipboard(result.hashtags, "Hashtags")}
+                                >
+                                  <Copy className="h-4 w-4"/>
+                                  <span className="sr-only">Copy to clipboard</span>
+                                </Button>
+                              </div>
+                            </PopoverContent>
+                          </Popover>
+                        </div>
+                        <div className="flex items-center">
+                          <Input
+                            readOnly
+                            className="bg-secondary"
+                            value={result.title}
+                          />
+                          <Button
+                            variant="secondary"
+                            size="icon"
+                            onClick={() => handleCopyToClipboard(result.title, "Title")}
+                          >
+                            <Copy className="h-4 w-4"/>
+                            <span className="sr-only">Copy to clipboard</span>
+                          </Button>
+                        </div>
                       </div>
-                      <div className="flex items-center">
-                        <Input
-                          readOnly
-                          className="bg-secondary"
-                          value={result.title}
-                        />
-                        <Button
-                          variant="secondary"
-                          size="icon"
-                          onClick={() => handleCopyToClipboard(result.title, "Title")}
-                        >
-                          <Copy className="h-4 w-4"/>
-                          <span className="sr-only">Copy to clipboard</span>
-                        </Button>
+                      <div>
+                        <p className="text-sm font-medium">SEO Explanation:</p>
+                        {result.seoExplanation}
                       </div>
-                    </div>
-                    <div>
-                      <p className="text-sm font-medium">SEO Explanation:</p>
-                      {result.seoExplanation}
-                    </div>
-                  </CardContent>
-                </Card>
+                    </CardContent>
+                  </Card>
+                </div>
               ))}
             </div>
           )}
