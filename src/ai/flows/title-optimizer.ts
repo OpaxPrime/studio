@@ -46,14 +46,13 @@ const optimizeTitlePrompt = ai.definePrompt({
       })).describe('An array of AI-powered suggestions for improved titles, descriptions, and hashtags, along with SEO explanations.'),
     }),
   },
-  prompt: `You are an expert in YouTube SEO and title optimization. Given the original title, suggest three improved titles that will enhance SEO and engagement.  Each suggestion must include SEO-driven descriptions, a diverse set of hashtags (at least 15 per suggestion), and a detailed explanation of the SEO benefits for each title.
+  prompt: `You are an expert in YouTube SEO and title optimization. Given the original title, suggest three improved titles that will enhance SEO and engagement.  Each suggestion must include SEO-driven descriptions, a diverse set of hashtags (at least 25 per suggestion), and a detailed explanation of the SEO benefits for each title.
 
 To improve SEO, follow these guidelines:
-- Titles should be concise, engaging, and include relevant keywords to improve search visibility.
-- Descriptions should provide a clear summary of the video content, incorporating keywords naturally to attract viewers and search engines.
-- Hashtags should be a mix of broad, trending, and specific terms related to the video's niche to maximize reach.
-
-Focus the SEO explanation on why the improved title is better and what SEO terms it includes.
+1.  Titles should be concise (under 60 characters), engaging, and include relevant keywords to improve search visibility.
+2.  Descriptions should provide a clear summary of the video content, incorporating keywords naturally to attract viewers and search engines. The description should be around 150-200 characters.
+3.  Hashtags should be a mix of broad, trending, and specific terms related to the video's niche to maximize reach. Use at least 25 hashtags, separating them by commas.
+4. Focus the SEO explanation on why the improved title is better and what SEO terms it includes. Explain the keyword strategy, engagement tactics, and overall SEO improvements for the title, without reiterating the hashtags.
 
 Original Title: {{{originalTitle}}}
 
@@ -61,8 +60,8 @@ ${[...Array(3)].map((_, i) => `
 Improved Title ${i + 1}:
 Title:
 Description:
-Hashtags:
-SEO Explanation:`).join('')}
+Hashtags:`).join('')}
+SEO Explanation:
 `,
 });
 
@@ -78,3 +77,4 @@ async input => {
   const {output} = await optimizeTitlePrompt(input);
   return output!;
 });
+
